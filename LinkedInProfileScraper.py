@@ -7,7 +7,7 @@ import datetime as dt
 
 '''_____Start of functions_____'''
 
-# Defining a function to clean and match the names of researchers in 2 files
+# Defining a function to clean the words inside the footer buttons of the profile
 def name_cleaner(dirty_name):
     return frozenset([ part_name.strip() 
                        for part_name in \
@@ -23,7 +23,6 @@ def extract_year(text):
     def year(word):
         word = re.findall(r'(\d{4})', text)
         return word
-
     if 'Present' in text:
         splits = text.split('-')
         data = year(splits[0])[0]
@@ -64,7 +63,7 @@ def month_year_str_to_datetime(month_year_str):
     year = int(date_list[1])
     return dt.datetime(year=year, month=month, day=1)
 
-# Defining a function to get an entire information about work experience from the page that opens up after pressing 'Show all experiences' button
+# Defining a function to get an entire information about work experience from the user's main profile page
 def get_experiences_list(exp_page_source):
     boxes = exp_page_source.find_all('div', class_ = 'pvs-entity pvs-entity--padded pvs-list__item--no-padding-in-columns')
     experiences_list = []
@@ -90,8 +89,7 @@ def get_experiences_list(exp_page_source):
                     experience_dict['company_url'] = b['href']
                 i = node.find('div', 'display-flex flex-row justify-space-between')
                 position = i.a.div.span.span.text.strip()
-                period = i.a.find('span', 't-14 t-normal t-black--light').span.text
-
+                period = i.a.find('span', 't-14 t-normal t-black--light').span.text.strip()
                 try:
                     description = node.find('div', 'pvs-list__outer-container').span.text.strip()
                 except:
@@ -119,7 +117,7 @@ def get_experiences_list(exp_page_source):
             experiences_list.append(experience_dict)
     return experiences_list
 
-# Defining a function to get the entire information about education on a user's profile
+# Defining a function to get the entire information about education from the user's main profile page
 def get_education_list(edu_page_source):
     boxes = edu_page_source.find_all('div', class_ = 'pvs-entity pvs-entity--padded pvs-list__item--no-padding-in-columns')
     education_list = []
@@ -132,7 +130,7 @@ def get_education_list(edu_page_source):
             education_list.append(education_dict)
     return education_list
 
-# Defining a function to get information about honors and awards on a user's profile
+# Defining a function to get information about honors and awards from the user's main profile page
 def get_honorsawards_list(honors_page_source):
     boxes = honors_page_source.find_all('div', class_ = 'pvs-entity pvs-entity--padded pvs-list__item--no-padding-in-columns')
     honorsawards_list = []
@@ -172,7 +170,6 @@ login_field.click()
 # skip_adding_phone = driver.find_element('xpath', '//*[@id='ember459']/button')
 # skip_adding_phone.click()
 print('Finished logging in.')
-# sleep(1)
 
 ''' _____Write 'Defining a function to access and scrape the data of Linkedin profiles_____ '''
 
