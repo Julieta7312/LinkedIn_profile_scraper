@@ -1,4 +1,4 @@
-# A Python program to scrape LinkedIn user profiles
+# A Program for Scraping LinkedIn Profiles Using Selenium And Beautiful Soup in Python
 
 This scraper can be used to retrieve information about employment, education, and honors and awards -related information from the publically available Linkedin user profiles.
 
