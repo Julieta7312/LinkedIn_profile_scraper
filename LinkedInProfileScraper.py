@@ -171,7 +171,7 @@ login_field.click()
 # skip_adding_phone.click()
 print('Finished logging in.')
 
-''' _____Write 'Defining a function to access and scrape the data of Linkedin profiles_____ '''
+''' _____Access and scrape the data of Linkedin profiles_____ '''
 
 footer_params = [['show', 'all', 'experiences'], \
                  ['show', 'all', 'education'], \
