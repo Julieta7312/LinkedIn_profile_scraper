@@ -26,8 +26,9 @@ def extract_year(text):
     else:
         years = year(text)
         if len(years) == 1:
+            # if only 1 date is provided, it means the job started and ended within the same year 
             start = years[0]
-            end =years[0]
+            end = years[0]
             return [start, end]
         else:
             return years
