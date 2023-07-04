@@ -111,7 +111,7 @@ def get_experiences_list(exp_page_source):
             period = experience_dict['period_of_stay']
             experience_dict['start_date'] = extract_year(period)[0]
             experience_dict['end_date'] = extract_year(period)[1]
-            experiences_list.append(experience_dict)
+        experiences_list.append(experience_dict)
     return experiences_list
 
 # Defining a function to get the entire information about education from the user's main profile page
@@ -124,7 +124,7 @@ def get_education_list(edu_page_source):
             education_dict['university_url'] = b['href']
         for var_name, b in zip(list(education_dict.keys())[1:], box.find_all('span', class_='visually-hidden')):
             education_dict[var_name] = b.get_text()
-            education_list.append(education_dict)
+        education_list.append(education_dict)
     return education_list
 
 # Defining a function to get information about honors and awards from the user's main profile page
@@ -135,7 +135,7 @@ def get_honorsawards_list(honors_page_source):
         honorsawards_dict = {'honor/award_title' : None, 'issuing_organization_and_date' : None, 'associated_with' : None, 'honor/award_description' : None }
         for var_name, b in zip(list(honorsawards_dict.keys()), box.find_all('span', class_='visually-hidden')):
             honorsawards_dict[var_name] = b.get_text()
-            honorsawards_list.append(honorsawards_dict)
+        honorsawards_list.append(honorsawards_dict)
     return honorsawards_list
     
 ''' _____End of functions_____ '''
@@ -275,7 +275,7 @@ for profile_url in urls_of_profiles_to_scrape:
                         period = experience_dict['period_of_stay']
                         experience_dict['start_date'] = extract_year(period)[0]
                         experience_dict['end_date'] = extract_year(period)[1]
-                        experiences_list.append(experience_dict)
+                    experiences_list.append(experience_dict)
                 footer_data[''.join(footer_param)] = experiences_list
             else:
                 print('No Experiences Found')
@@ -296,7 +296,7 @@ for profile_url in urls_of_profiles_to_scrape:
                         education_dict['university_url'] = b['href']
                     for var_name, b in zip(list(education_dict.keys())[1:], box.find_all('span', class_='visually-hidden')):
                         education_dict[var_name] = b.get_text()
-                        education_list.append(education_dict)
+                    education_list.append(education_dict)
                 footer_data[''.join(footer_param)] = education_list
             else:
                 print('No Education record found')
