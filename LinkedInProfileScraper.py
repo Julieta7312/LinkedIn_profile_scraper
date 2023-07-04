@@ -10,7 +10,7 @@ import datetime as dt
 # Defining a function to clean the words inside the footer buttons of the profile
 def name_cleaner(dirty_name):
     return frozenset([ part_name.strip() for part_name in \ 
-    		    re.sub(pattern=r'[^a-zA-Z\s]', repl=u'',\
+    		        re.sub(pattern=r'[^a-zA-Z\s]', repl=u'',\
                     	string=dirty_name, flags=re.UNICODE)\
                     	.lower().split(' ') if part_name != '' ])
 
