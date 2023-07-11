@@ -183,7 +183,7 @@ footer_data = {'showallexperiences' : [], \
                'showallhonorsawards' : []}
 
 user_profile_data = {}
-urls_of_profiles_to_scrape = ['https://www.linkedin.com/in/alex-ys-yun/']
+urls_of_profiles_to_scrape = ['https://www.linkedin.com/in/julietamatevosyan/']
 for profile_url in urls_of_profiles_to_scrape:
     driver.get(profile_url)
     sleep(1)
