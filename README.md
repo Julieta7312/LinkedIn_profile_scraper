@@ -6,4 +6,4 @@ Information on other profile sections can be retrieved as well by simply adding 
 
 Notes
 - You will need to provide your own LinkedIn account login and password credentials to access the profiles of other users.
-- LinkedIn regularly updates the page source which can result in errors while running this program. Usually, this occurs for the footer buttons (that expands a profile section and opens it in a new webpage). The problem can be easily  overcome by inspecting the HTML location of the footer button and updating the 'get_url_from_footers' function on Python script. 
+- LinkedIn regularly updates the page source which can result in errors while running this program. Usually, this occurs for the footer buttons (that expands a profile section and opens it in a new webpage). The problem can be easily  overcome by inspecting the HTML location of the footer button and updating the 'url_from_footers' function on Python script. 
