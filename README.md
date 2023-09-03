@@ -1,6 +1,6 @@
 # A Program for Scraping LinkedIn Profiles Using Selenium And Beautiful Soup in Python
 
-This scraper can be used to retrieve information about employment, education, and honors and awards -related information from the publically available Linkedin user profiles.
+This scraper can be used to retrieve information about employment, education, and honors and awards from the publically available Linkedin user profiles.
 
 Information on other profile sections can be retrieved as well by simply adding more functions referring to the already defined functions (i.e. the functions for fetching employment, education, and honors and awards -related data). 
 
